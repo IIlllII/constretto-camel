@@ -1,6 +1,6 @@
 # Constretto Camel #
 
-Camel component supported by [Constretto](http://constretto.github.io). Builds upon the PropertiesComponent distributed with Apache Camel. Enables you to use the power of Constretto to setup configuration from various sources such as Java properties and INI files with support for environment tagging. 
+[Apache Camel](http://camel.apache.org) component supported for [Constretto](http://constretto.github.io). Builds upon the PropertiesComponent distributed with Apache Camel. Enables you to use the power of Constretto to setup configuration from various sources such as Java properties and INI files with support for environment tagging. 
 
 [![Build Status](https://travis-ci.org/constretto/constretto-camel.png)](https://travis-ci.org/constretto/constretto-camel)
 
