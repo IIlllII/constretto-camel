@@ -32,7 +32,7 @@ Camel component supported by [Constretto](http://constretto.github.io). Builds u
 </beans>
 ```
 Or you can combine it with the Constretto-Spring XML namespace support
-```
+```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:camel="http://camel.apache.org/schema/spring"
