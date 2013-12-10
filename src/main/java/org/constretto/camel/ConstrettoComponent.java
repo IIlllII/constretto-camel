@@ -12,11 +12,6 @@ public class ConstrettoComponent extends PropertiesComponent {
         setConstrettoResolver();
     }
 
-    public ConstrettoComponent(final String location) {
-        super(location);
-        setConstrettoResolver();
-    }
-
     private void setConstrettoResolver() {
         setPropertiesResolver(new ConstrettoPropertiesResolver());
     }
