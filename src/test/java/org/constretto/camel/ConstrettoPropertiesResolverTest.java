@@ -56,6 +56,22 @@ public class ConstrettoPropertiesResolverTest {
     }
 
     @Test
+    public void testResolveIniFileExists() throws Exception {
+        final Properties properties = resolver.resolveProperties(null, true, "classpath:test.ini");
+        assertEquals("value", properties.getProperty("key"));
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testResolveUnsupportedExtension() throws Exception {
+        final Properties properties = resolver.resolveProperties(null, true, "classpath:unsupported.txt");
+        assertEquals("value", properties.getProperty("key"));
+
+    }
+
+
+
+    @Test
     public void testResolveReferenceIgnore() throws Exception {
        final Properties properties = resolver.resolveProperties(camelContext, true, "ref:configuration");
         assertNotNull(properties);
