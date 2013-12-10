@@ -6,7 +6,7 @@ Camel component supported by [Constretto](http://constretto.github.io). Builds u
 
 ## Adding to Camel Context ##
 ### Spring XML ###
-```
+```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:camel="http://camel.apache.org/schema/spring" xmlns:to="http://camel.apache.org/schema/spring"
