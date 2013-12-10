@@ -25,7 +25,7 @@ public class ConstrettoComponentInContextTest {
     private MockEndpoint endpoint;
 
     @Test
-    public void testBlah() throws Exception {
+    public void testInRoute() throws Exception {
         producerTemplate.sendBody("blah");
         endpoint.expectedMessageCount(1);
         endpoint.assertIsSatisfied();

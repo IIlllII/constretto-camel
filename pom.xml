@@ -158,7 +158,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-spring</artifactId>
+            <artifactId>camel-spring-javaconfig</artifactId>
             <version>${camel.version}</version>
             <scope>test</scope>
             <exclusions>
