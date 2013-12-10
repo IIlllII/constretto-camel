@@ -23,8 +23,8 @@ public class ConstrettoPropertiesResolver implements PropertiesResolver {
     @Override
     public Properties resolveProperties(final CamelContext context, final boolean ignoreMissingLocation, final String... uri) throws Exception {
         final ConstrettoBuilder constrettoBuilder = new ConstrettoBuilder();
-        for(String currentUri: uri) {
-            if(currentUri.startsWith("ref:")) {
+        for (String currentUri : uri) {
+            if (currentUri.startsWith("ref:")) {
                 loadFromRegistry(constrettoBuilder, context, currentUri, ignoreMissingLocation);
             } else {
                 loadFromResource(constrettoBuilder, currentUri, ignoreMissingLocation);
@@ -50,25 +50,19 @@ public class ConstrettoPropertiesResolver implements PropertiesResolver {
                                   final boolean ignoreMissingLocation) throws IOException {
         final Resource resource = Resource.create(uri);
         final boolean resourceExist = resource.exists();
-        if(! ignoreMissingLocation && !resourceExist) {
-            throw new FileNotFoundException(String.format("The resource \"%1$s\" does not exist"));
+        if (!ignoreMissingLocation && !resourceExist) {
+            throw new FileNotFoundException(String.format("The resource \"%1$s\" does not exist", uri));
         }
-        if(resourceExist) {
-            if(uri.endsWith(".properties")) {
+        if (resourceExist) {
+            if (uri.endsWith(".properties")) {
                 constrettoBuilder.createPropertiesStore().addResource(resource).done();
-            } else if(uri.endsWith(".ini")) {
+            } else if (uri.endsWith(".ini")) {
                 constrettoBuilder.createIniFileConfigurationStore().addResource(resource).done();
-            } else if(uri.endsWith(".json")) {
-                constrettoBuilder.createJsonConfigurationStore().addResource(resource, createKeyName(uri)).done();
             } else {
                 throw new IllegalArgumentException(String.format("I do not know what to do with the url \"%1$s\". " +
-                        "Only files ending with .properties, .ini or .json is currently supported"));
+                        "Only files with .properties or .ini extensions is currently supported", uri));
             }
         }
-    }
-
-    private String createKeyName(final String uri) {
-        return ResourceNameUtils.extractFileNameFromUri(uri);
     }
 
     private void loadFromRegistry(final ConstrettoBuilder constrettoBuilder,
@@ -76,15 +70,16 @@ public class ConstrettoPropertiesResolver implements PropertiesResolver {
                                   final String currentUri,
                                   final boolean ignoreMissingLocation) throws IOException {
         final String componentName = ObjectHelper.after(currentUri, "ref:");
-        try {
-            final ConstrettoConfiguration configuration = context
-                    .getRegistry()
-                    .lookupByNameAndType(componentName, ConstrettoConfiguration.class);
-            constrettoBuilder.addConfigurationStore(new EmbeddedConfigurationStore(configuration));
-        } catch (Exception e) {
-            if(! ignoreMissingLocation) {
-                throw new FileNotFoundException(String.format("No ConstrettoConfiguration called \"%1$s\" was found", componentName));
-            }
+        final ConstrettoConfiguration configuration = context
+                .getRegistry()
+                .lookupByNameAndType(componentName, ConstrettoConfiguration.class);
+        if (configuration == null && !ignoreMissingLocation) {
+            throw new FileNotFoundException(String.format("No ConstrettoConfiguration called \"%1$s\" was found", componentName));
+
         }
+        if (configuration != null) {
+            constrettoBuilder.addConfigurationStore(new EmbeddedConfigurationStore(configuration));
+        }
+
     }
 }
