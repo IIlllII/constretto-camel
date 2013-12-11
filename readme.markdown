@@ -4,6 +4,18 @@
 
 [![Build Status](https://travis-ci.org/constretto/constretto-camel.png)](https://travis-ci.org/constretto/constretto-camel)
 
+## Adding to project ##
+The component is deployed in the Sonatype repo and should thus be widely available.
+
+### Maven ###
+```xml
+<dependency>
+  <groupId>org.constretto</groupId>
+  <artifactId>constretto-camel</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
 ## Adding to Camel Context ##
 ### Spring XML ###
 ```xml
