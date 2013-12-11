@@ -12,7 +12,7 @@ The component is deployed in the Sonatype repo and should thus be widely availab
 <dependency>
   <groupId>org.constretto</groupId>
   <artifactId>constretto-camel</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
