@@ -205,6 +205,7 @@
                         <link>http://docs.oracle.com/javaee/5/api/</link>
                         <link>http://static.springsource.org/spring/docs/3.2.x/javadoc-api/</link>
                         <link>http://paranamer.codehaus.org/javadoc/</link>
+                        <link>http://camel.apache.org/maven/current/camel-core/apidocs/</link>
                     </links>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -255,5 +256,15 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
+    <scm>
+        <connection>scm:git:git@github.com:constretto/constretto-camel.git</connection>
+        <developerConnection>scm:git:git@github.com:constretto/constretto-camel.git</developerConnection>
+        <url>http://github.com/constretto/constretto-camel</url>
+    </scm>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/constretto/constretto-camel/issues</url>
+    </issueManagement>
 
 </project>
