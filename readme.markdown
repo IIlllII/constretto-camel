@@ -80,3 +80,39 @@ Or you can combine it with the Constretto-Spring XML namespace support
 
 </beans>
 ```
+### Spring Java Context ###
+```java
+@Configuration
+public static class Context extends SingleRouteCamelConfiguration {
+
+    @Bean
+    public static ConstrettoConfiguration constrettoConfiguration() {
+        return new ConstrettoBuilder(false)
+                .createPropertiesStore()
+                .addResource(Resource.create("classpath:test.properties"))
+                .done()
+                .getConfiguration();
+    }
+
+    @Bean
+    public ConstrettoComponent properties() {
+        return new ConstrettoComponent("ref:constrettoConfiguration");
+    }
+
+    @Override
+    protected void setupCamelContext(final CamelContext camelContext) throws Exception {
+        camelContext.addComponent("properties", properties());
+    }
+
+    @Override
+    public RouteBuilder route() {
+        return new RouteBuilder() {
+            @Override
+            public void configure() throws Exception {
+                from("direct:input").routeId("javaContextInputRoute").to("log:{{outlogger}}");
+            }
+        };
+    }
+}
+
+```
