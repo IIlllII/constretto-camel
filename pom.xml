@@ -11,6 +11,11 @@
     <prerequisites>
         <maven>3.1.0</maven>
     </prerequisites>
+    <name>Constretto Camel Component</name>
+    <description>
+        An Apache Camel component for Constretto bringing the awesomeness of Constretto to Camel
+    </description>
+    <url>https://github.com/constretto/constretto-camel</url>
     <developers>
         <developer>
             <id>zapodot</id>
