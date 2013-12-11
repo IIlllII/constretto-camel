@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 
 /**
- * @author sondre
+ * @author zapodot at gmail dot com
  */
 @RunWith(CamelSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:referencedConstrettoContext.xml")
