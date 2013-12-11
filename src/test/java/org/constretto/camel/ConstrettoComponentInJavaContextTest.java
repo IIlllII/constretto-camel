@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 
 /**
- * @author sondre
+ * @author zapodot at gmail dot com
  */
 @RunWith(CamelSpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ConstrettoComponentInJavaContextTest.Context.class,

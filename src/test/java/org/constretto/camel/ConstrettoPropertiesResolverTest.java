@@ -11,13 +11,11 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.io.FileNotFoundException;
 import java.util.Properties;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 /**
- * @author sondre
+ * @author zapodot at gmail dot com
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ConstrettoPropertiesResolverTest {
